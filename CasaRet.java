@@ -1,12 +1,22 @@
 public class CasaRet {
 
     public static void main(String[] args) {
-      //Fala para usuario
-        System.out.println("Programa para cálculo \n da área da casa");
-        System.out.println("A area da sala é " + 10*10);
-        System.out.println("A area do quarto é " + 5*7);
-        System.out.println("A area do banheiro é " + 5*7);
-        System.out.println("A area total é " + 10*10 + 5*7 + 5*7);
+      //Variaveis
+      //área do quarto
+      int areaq;
+      //area da sala
+      int areas;
+      //area total
+      int areat;
+
+      System.out.println("programa para calculo da area da casa");
+      areas = 10*10;
+      System.out.println("A area da sala é "+areas);
+      areaq = 7*5;
+      System.out.println("A area do quarto é "+areaq);
+      System.out.println("A area do banheiro é "+areaq);
+      areat = areas +2*areaq;
+      System.out.println("A area total é " + areat);
     }
 
 }
