@@ -16,7 +16,7 @@ public class CasaRet {
       System.out.println("A area do quarto é "+areaq);
       System.out.println("A area do banheiro é "+areaq);
       areat = areas +2*areaq;
-      System.out.println("A area total é " + areat);
+      System.out.println("A area taotal é " + areat);
     }
 
 }
