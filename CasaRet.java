@@ -7,6 +7,6 @@ public class CasaRet {
     double areap;
     //valor do pi
     areap = Math.PI * Math.pow(raio,2);
-    System.Out.Println("Area: "+areap);
+    System.out.println("Area: "+areap);
   }
 }
