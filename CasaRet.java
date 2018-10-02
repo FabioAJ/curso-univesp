@@ -3,16 +3,19 @@ public class CasaRet {
     public static void main(String[] args) {
       //Variaveis
       //área do quarto
-      int areaq;
+      float areaq;
       //area da sala
-      int areas;
+      float areas;
       //area total
-      int areat;
-
+      float areat;
+      //lateral e quarto
+      float lateral = 10;
+      float cquarto = 7;
+      //float = numeros nao inteiros
       System.out.println("programa para calculo da area da casa");
-      areas = 10*10;
+      areas = lateral*lateral;
       System.out.println("A area da sala é "+areas);
-      areaq = 7*5;
+      areaq = cquarto*(lateral/2);
       System.out.println("A area do quarto é "+areaq);
       System.out.println("A area do banheiro é "+areaq);
       areat = areas +2*areaq;
