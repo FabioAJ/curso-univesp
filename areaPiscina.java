@@ -9,3 +9,5 @@ public class areaPiscina {
     System.out.println("Area: "+areap);
   }
 }
+
+//ATENÇAO ACABADO NA AULA 7 ! SE JUNTOU COM AREA CASA.
