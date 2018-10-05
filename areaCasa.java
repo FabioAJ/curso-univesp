@@ -8,6 +8,9 @@ class AreaCasa {
     double areas;
     double areat;
     //Programacao
+    if (!(lateral >= 0 && cquarto >= 0))
+      System.out.println("Erro: Parametro >= 0");
+    else {
     System.out.println("Programa para calculo da area da casa");
 
     areas = lateral*lateral;
@@ -22,6 +25,7 @@ class AreaCasa {
     areat = areas+2*areaq;
 
     System.out.println("A area total e "+areat);
+        }
             }
             //Metodos de MATH, PI
             //raio sem parametro!
