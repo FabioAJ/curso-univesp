@@ -1,13 +1,13 @@
 class AreaCasa {
+
   static double valorM2 = 1500.0;
 
   static void areaCasa(double lateral,double cquarto) {
-    //Atencao Parametros = lateral e cquarto sem definicao
-    //Variaveis
+
     double areaq;
     double areas;
     double areat;
-    //Programacao
+
     if (!(lateral >= 0 && cquarto >= 0))
       System.out.println("Erro: Parametro >= 0");
     else {
@@ -25,27 +25,37 @@ class AreaCasa {
     areat = areas+2*areaq;
 
     System.out.println("A area total e "+areat);
-        }
-            }
-            //Metodos de MATH, PI
-            //raio sem parametro!
-   static double areaPiscina(double raio){
-     return Math.PI*Math.pow(raio,2);
-   }
+  }
+    }
+
+    static final int ALVENARIA = 0;
+    static final int VINIL = 1;
+    static final int FIBRA = 2;
+    static final int PLASTICO = 3;
 
   static double valor(double area){
-    if (area >= 0){
-      return(valorM2*area);
-    }
+    if (area >= 0)
+    return(valorM2*area);
     return(-1);
   }
+//ESTRUTURA DE SWITCH
+  static double valorPiscina(double area, int material) {
+     switch (material) {
+       case ALVENARIA: return(area * 1500);
+       case VINIL: return(area * 1100);
+       case FIBRA: return(area * 750);
+       case PLASTICO: return(area * 500);
+       default: return(-1);
+     }
+   }
 
   public static void main(String[] args) {
 
-  double areap;
+  /*double areap;
   areaCasa(11 , 7);
   areap = areaPiscina(2);
   System.out.println("A area da piscina e " + areap);
+
   //Usando BOOL
   double preco;
   boolean valorOK = false;
@@ -54,6 +64,6 @@ class AreaCasa {
   valorOK = (preco >= 0);
 
   if (valorOK) System.out.println("O valor da construcao e "+ preco);
-  else System.out.println("Valor de area negativo");
+  else System.out.println("Valor de area negativo");*/
+    }
   }
-}
