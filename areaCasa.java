@@ -48,10 +48,21 @@ class AreaCasa {
        default: return(-1);
      }
    }
+//LAÇO
+public static void main(String[] args) {
+  double area = 100;
+  int tipo = 0;
 
-  public static void main(String[] args) {
+  System.out.println("Material\tValor");
+  while (tipo <= 3) {
+    System.out.println(tipo+"\t\t"+valorPiscina(area,tipo));
+    tipo = tipo+1;
+    }
+  }
+}
+  /*public static void main(String[] args) {
 
-  /*double areap;
+  double areap;
   areaCasa(11 , 7);
   areap = areaPiscina(2);
   System.out.println("A area da piscina e " + areap);
@@ -65,5 +76,3 @@ class AreaCasa {
 
   if (valorOK) System.out.println("O valor da construcao e "+ preco);
   else System.out.println("Valor de area negativo");*/
-    }
-  }
