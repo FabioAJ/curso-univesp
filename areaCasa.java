@@ -50,13 +50,17 @@ class AreaCasa {
    }
 //LAÇO
 public static void main(String[] args) {
-  double area = 100;
+  double area = 50;
   int tipo = 0;
 
   System.out.println("Material\tValor");
-  while (tipo <= 3) {
-    System.out.println(tipo+"\t\t"+valorPiscina(area,tipo));
+  while (area <= 200) {
+    tipo = ALVENARIA;
+    while (tipo <= PLASTICO) {
+    System.out.println(area+"\t"+tipo+"\t\t"+valorPiscina(area,tipo));
     tipo = tipo+1;
+    }
+    area = area+50;
     }
   }
 }
