@@ -1,5 +1,21 @@
-class AreaCasa {
+/*
+Autor: Fabio Augusto Amaro Jaime
 
+Data de criação: 27/09/2018
+
+Objetivo: fazer o calculo da area de uma casa e o valor de seus materiais.
+
+Baseado em: Baseado no curso  Programação de Computadores da  Univesp
+Universidade Virtual do Estado de São Paulo.
+Professores responsáveis: Luciano Digiampietri e Norton Trevisan Roman
+https://www.youtube.com/playlist?list=PLxI8Can9yAHfK6wdaMUO74lmotAP7J7bi
+*/
+
+class AreaCasa {
+  static final int alvenaria = 0;
+  static final int vinil = 1;
+  static final int fibra = 2;
+  static final int plastico = 3;
   static double valorM2 = 1500.0;
 
   static void areaCasa(double lateral,double cquarto) {
@@ -9,69 +25,43 @@ class AreaCasa {
     double areat;
 
     if (!(lateral >= 0 && cquarto >= 0))
-    System.out.println("Erro: Parametro >= 0");
+      System.out.println("Erro: Parametro >= 0");
     else {
       System.out.println("Programa para calculo da area da casa");
-
       areas = lateral*lateral;
       System.out.println("A area da sala e "+areas);
-
       areaq= cquarto*(lateral/2);
-
       System.out.println("A area do quarto e "+areaq);
-
       System.out.println("A area do banheiro e "+areaq);
-
       areat = areas+2*areaq;
-
       System.out.println("A area total e "+areat);
+    }
+  }
+
+  static double valor(double area) {
+    if (area >= 0)
+    return(valorM2*area);
+    return(-1);
+  }
+
+  static double valorPiscina(double area, int material) { // EstruturaSwitch
+
+      switch (material) {
+        case alvenaria: return(area * 1500);
+        case vinil: return(area * 1100);
+        case fibra: return(area * 750);
+        case plastico: return(area * 500);
+        default: return(-1);
       }
     }
 
-static final int ALVENARIA = 0;
-static final int VINIL = 1;
-static final int FIBRA = 2;
-static final int PLASTICO = 3;
+  public static void main(String[] args) { //LAÇO e WHILE
 
-static double valor(double area){
-  if (area >= 0)
-  return(valorM2*area);
-  return(-1);
-  }
-//ESTRUTURA DE SWITCH
-static double valorPiscina(double area, int material) {
- switch (material) {
-   case ALVENARIA: return(area * 1500);
-   case VINIL: return(area * 1100);
-   case FIBRA: return(area * 750);
-   case PLASTICO: return(area * 500);
-   default: return(-1);
-   }
-}
-//LAÇO e WHILE
-public static void main(String[] args) {
-  System.out.println("Area\tMaterial\tValor");
-  for (double area = 50; area <= 200; area = area+50) {
-    for (int tipo = ALVENARIA; tipo <= PLASTICO; tipo = tipo+1) {
-      System.out.println(area+"\t"+tipo+"\t\t"+valorPiscina(area,tipo));
+    System.out.println("Area\tMaterial\tValor");
+    for (double area = 50; area <= 200; area = area + 50) {
+      for (int tipo = alvenaria; tipo <= plastico; tipo = tipo + 1) {
+        System.out.println(area + "\t" + tipo + "\t\t" + valorPiscina(area,tipo));
       }
     }
   }
 }
-
-/*public static void main(String[] args) {
-
-double areap;
-areaCasa(11 , 7);
-areap = areaPiscina(2);
-System.out.println("A area da piscina e " + areap);
-
-//Usando BOOL
-double preco;
-boolean valorOK = false;
-
-preco = valor(20);
-valorOK = (preco >= 0);
-
-if (valorOK) System.out.println("O valor da construcao e "+ preco);
-else System.out.println("Valor de area negativo");*/
