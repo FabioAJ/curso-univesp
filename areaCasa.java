@@ -13,17 +13,19 @@ https://www.youtube.com/playlist?list=PLxI8Can9yAHfK6wdaMUO74lmotAP7J7bi
 
 
 class AreaCasa {
-  static final int alvenaria = 0;
-  static final int vinil = 1;
-  static final int fibra = 2;
-  static final int plastico = 3;
-  static double valorM2 = 1500.0;
+    static double[] preco = {1500, 1100, 750, 500}; // precos dos materiais
+    static final int alvenaria = 0;// Material alvenaria
+    static final int vinil = 1; //Material vinil
+    static final int fibra = 2; //Material fibra
+    static final int plastico = 3; //Material plastico
 
-  static void areaCasa(double lateral,double cquarto) {
+    static double valorM2 = 1500.0;
 
-    double areaq;
-    double areas;
-    double areat;
+    static void areaCasa(double lateral,double cquarto) {
+
+        double areaq;
+        double areas;
+        double areat;
 
     if (!(lateral >= 0 && cquarto >= 0))
       System.out.println("Erro: Parametro >= 0");
@@ -45,24 +47,20 @@ class AreaCasa {
     return(-1);
   }
 
-  static double valorPiscina(double area, int material) { // EstruturaSwitch
-
-      switch (material) {
-        case alvenaria: return(area * 1500);
-        case vinil: return(area * 1100);
-        case fibra: return(area * 750);
-        case plastico: return(area * 500);
-        default: return(-1);
-      }
+  static double valorPiscina(double area, int material) {
+        if (material < alvenaria || material > plastico || area < 0) return (-1);
+        return(area * preco[material]);
     }
 
-  public static void main(String[] args) { //LAÇO e WHILE
+    public static void main(String[] args) {
 
-    System.out.println("Area\tMaterial\tValor");
-    for (double area = 50; area <= 200; area = area + 50) {
-      for (int tipo = alvenaria; tipo <= plastico; tipo = tipo + 1) {
-        System.out.println(area + "\t" + tipo + "\t\t" + valorPiscina(area,tipo));
-      }
+        System.out.println("Area\tMaterial\tValor");
+        for (double area = 50; area <= 200; area = area + 50) {
+            for (int tipo = alvenaria; tipo <= plastico; tipo = tipo + 1) {
+                System.out.println(area + "\t" + tipo + "\t\t" + valorPiscina(area,tipo));
+            }
+        }
+
+
     }
-  }
 }
