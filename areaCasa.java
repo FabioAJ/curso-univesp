@@ -51,6 +51,13 @@ class AreaCasa {
         if (material < alvenaria || material > plastico || area < 0) return (-1);
         return(area * preco[material]);
     }
+    static double media (double[] arranjo) {
+        double resp = 0;
+        for (double valor : arranjo) {
+            resp += valor;
+        }
+        return (resp/arranjo.length);
+    }
 
     public static void main(String[] args) {
 
@@ -60,7 +67,7 @@ class AreaCasa {
                 System.out.println(area + "\t" + tipo + "\t\t" + valorPiscina(area,tipo));
             }
         }
-
-
+        System.out.println(media(preco));
     }
+
 }
