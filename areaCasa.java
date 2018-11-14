@@ -25,6 +25,8 @@ class AreaCasa {
     {'F', 'i', 'b', 'r', 'a'},
     {'P', 'l', 'a', 's', 't', 'i', 'c', 'o'}};
 
+
+
     static double valorM2 = 1500.0;
 
     static void areaCasa(double lateral,double cquarto) {
@@ -53,6 +55,7 @@ class AreaCasa {
         return(-1);
     }
 
+    //mostra o valor para cada material
     static double valorPiscina(double area, int material) {
         if (material < alvenaria || material > plastico || area < 0) return (-1);
         return(area * preco[material]);
@@ -78,47 +81,50 @@ class AreaCasa {
         }
     }
 
+    //multiplica para adicionar os descontos nos materiais
+    public static double[][] calculaFinal(double[][] val, double[][] desc){
+        double[][] saida = new double[val.length][val[0].length];
+
+        for (int i = 0; i < saida.length; i++) {
+            for (int j = 0; j < saida[0].length ; j++) {
+                saida[i][j] = val[i][j] * (1 - desc[i][j]);
+            }
+        }
+
+        return(saida);
+    }
+
     public static void main(String[] args) {
 
         double[][] valores = new double [4][4];
 
+        double[][] descontos = {
+            {0,0,0.2,0.2},
+            {0.05,0.05,0.1,0.15},
+            {0.02,0.04,0.08,0.16},
+            {0,0,0,0.05}
+        };
+
+        double[][] pFinal = new double[4][4];
+
         carregaVal(valores);
 
+        pFinal = calculaFinal(valores, descontos);
+
         for (int i = 0; i < valores.length; i++) {
-            for (int j = 0; j < valores[i].length; j++)
-                System.out.println(valores[i][j] + " ");
+            for (int j = 0; j < valores[i].length; j++) {
+                System.out.println(pFinal[i][j] + " ");
+            }
             System.out.println();
         }
-
         for (double[] linha : valores) {
             for (double valor : linha)
-                System.out.println(valor+" ");
-            System.out.println();
+            System.out.println(/*valor+" "*/);
         }
-        System.out.println("Piscina de ");
-        System.out.println(nomes[2]);
-        System.out.println(": "+ valorPiscina(100,fibra));
+        //System.out.println("Piscina de ");
+        //System.out.println(nomes[2]);
+        //System.out.println(": "+ valorPiscina(100,fibra));
         //Usando a media dos precos
-        System.out.println(media(preco));
+        //System.out.println(media(preco));
     }
 }
-// System.out.println("Area\tMaterial\tValor");
-// for (double area = 50; area <= 200; area = area + 50) {
-//     for (int tipo = alvenaria; tipo <= plastico; tipo = tipo + 1) {
-//         System.out.println(area + "\t" + tipo + "\t\t" + valorPiscina(area,tipo));
-//     }
-// } Usado no Main
-
-//Aumentando e usando tabela ASCII
-// char c = 'o';
-// char x = '\u00F6';
-// int y = 246;
-
-// System.out.println(c);
-// System.out.println(x);
-// System.out.println((char)y);
-
-//Percorre a tabela Ascii
-// for (int i = 32; i <= 126; i++) {
-//     System.out.println(i+" : "+(char)i);
-// }
