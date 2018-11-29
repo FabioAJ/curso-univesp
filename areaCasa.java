@@ -16,14 +16,6 @@ class AreaCasa {
 
     static double valorM2 = 1500.0;
 
-    AreaCasa() {
-        this(1500.0);
-    }
-
-    AreaCasa(double valorM2) {
-        this.valorM2 = valorM2;
-    }
-
     static double area(double lateral, double cquarto) {
         double areat =- 1; // area total
 
