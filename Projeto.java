@@ -1,9 +1,14 @@
 class Projeto {
-    static double area(double lateral, double cquarto, double raio) {
-        return(AreaCasa.area(lateral, cquarto) + AreaPiscina.area(raio));
+
+    static double area(AreaCasa casa, AreaPiscina piscina) {
+        return(casa.area() + piscina.area());
     }
 
     public static void main (String[] args) {
-        System.out.println(area(15,10,4.2));
+        AreaCasa casaPrinc1 = new AreaCasa(10.0, 5.0);//error
+        AreaCasa casaPrinc2 = new AreaCasa(20.0, 5.0);//error
+        AreaPiscina piscina1 = new AreaPiscina(10);
+
+        System.out.println(area(casaPrinc1, piscina1));//error
     }
 }

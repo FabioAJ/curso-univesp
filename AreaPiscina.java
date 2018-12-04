@@ -24,8 +24,31 @@ class AreaPiscina {
     {'F', 'i', 'b', 'r', 'a'},
     {'P', 'l', 'a', 's', 't', 'i', 'c', 'o'}};
 
-    static double area(double raio) {
-        return ((raio >= 0) ? Math.PI * Math.pow(raio,2) : -1);
+    double raio;
+
+    AreaPiscina() {
+        double[] aux = {1500, 1100, 750, 500};
+        this.preco = aux;
+        this.raio = 10;
+    }
+
+    AreaPiscina(double[] preco) {
+        this.preco = preco;
+        this.raio = 10;
+    }
+
+    AreaPiscina(double raio) {
+        this();
+        this.raio = raio;
+    }
+
+    AreaPiscina(double[] preco, double raio) {
+        this.preco = preco;
+        this.raio = raio;
+    }
+
+    double area() {
+        return((this.raio >= 0) ? Math.PI * Math.pow(this.raio,2) : -1);
     }
 
     //mostra o valor para cada material

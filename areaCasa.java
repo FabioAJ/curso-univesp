@@ -14,19 +14,43 @@ https://www.youtube.com/playlist?list=PLxI8Can9yAHfK6wdaMUO74lmotAP7J7bi
 
 class AreaCasa {
 
-    static double valorM2 = 1500.0;
+    double valorM2 = 1500;
 
-    static double area(double lateral, double cquarto) {
-        double areat =- 1; // area total
+    double lateral = 10;
 
-        if (lateral >= 0 && cquarto >= 0) {
-            areat = lateral * lateral;
-            areat += cquarto * lateral;
+    double cquarto = 10;
+
+    AreaCasa() {}
+
+    AreaCasa(double valorM2) {
+        this.valorM2 = valorM2;
+    }
+
+    AreaCasa (double lateral, double cquarto) {
+        this.lateral = lateral;
+        this.cquarto = cquarto;
+    }
+
+    AreaCasa(double lateral, double cquarto, double valorM2) {
+        this(lateral, cquarto);
+        this.valorM2 = valorM2;
+    }
+
+    double area() {
+        double areat = - 1;
+        if (this.lateral >= 0 && this.cquarto >= 0) {
+            areat = this.lateral * this.lateral;
+            areat += this.cquarto * this.lateral;
         }
         return(areat);
     }
 
-    static void areaCasa(double lateral,double cquarto) {
+    double valor(double area) {
+        if (area >= 0) return(this.valorM2 * area);
+        return(-1);
+    }
+
+    /*static void areaCasaa(double lateral,double cquarto) {
 
         double areaq;
         double areas;
@@ -44,13 +68,7 @@ class AreaCasa {
             areat = areas + 2 * areaq;
             System.out.println("A area total e "+areat);
         }
-    }
-
-    static double valor(double area) {
-        if (area >= 0)
-        return(valorM2 * area);
-        return(-1);
-    }
+    }*/
 
     public static void main(String[] args) {
 
