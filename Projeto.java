@@ -3,6 +3,30 @@ class Projeto {
 	Residencia[] condominio;
 	int ultimo = - 1; //último alocado
 
+	static int buscaBin(int[] arr, int el) {
+		int fim = arr.length - 1;
+		int ini = 0;
+		while (ini <= fim) {
+			int meio = (fim + ini) / 2;
+			if (arr[meio] < el) ini = meio + 1;
+			else if (arr[meio] > el) fim = meio - 1;
+			else return (meio);
+		}
+		return (-1);
+	}
+
+
+	int buscaPiscSeq(double raio) {
+	for (int i = 0; i < this.condominio.length; i++)
+		if (this.condominio[i].piscina.raio == raio)
+			return (i);
+		return (-1);
+	}
+
+	static double area(AreaCasa casa, AreaPiscina piscina){
+		return(casa.area() + piscina.area());
+	}
+
 	boolean adiconaRes(Residencia r) {
 		if (this.ultimo < this.condominio.length - 1) {
 			ultimo++;
@@ -17,29 +41,22 @@ class Projeto {
 	}
 
 	public static void main(String[] args) {
+		int [] v = {-78,-4,0,32,52,55,63,69,125,200};
 
-		Projeto proj = new Projeto(3);
+		Projeto pr = new Projeto(5);
 
-		AreaCasa c = new AreaCasa(10, 5);
-		AreaPiscina p = new AreaPiscina(5);
-		Residencia r = new Residencia(c, p);
-		proj.adiconaRes(r);
-
-		c = new AreaCasa(12, 7);
-		p = new AreaPiscina(6);
-		r = new Residencia(c, p);
-		proj.adiconaRes(r);
-
-
-		c = new AreaCasa(10, 6);
-		p = new AreaPiscina(3.5);
-		r = new Residencia(c, p);
-		proj.adiconaRes(r);
-
-		for (Residencia re : proj.condominio) {
-			System.out.println("Endereço do objeto: " + re);
+		for (int i = 0; i < pr.condominio.length; i++) {
+			AreaCasa c = new AreaCasa();
+			AreaPiscina p = new AreaPiscina(i + 2);
+			Residencia r = new Residencia(c, p);
+			pr.adiconaRes(r);
 		}
 
-		System.out.println(proj.condominio[1].casa.area());
+		System.out.println(pr.buscaPiscSeq(3));
+		System.out.println(pr.buscaPiscSeq(15));
+
+		//Busca Sequencial Ordenada
+		System.out.println(buscaBin(v, 63));
+		System.out.println(buscaBin(v, 68));
 	}
 }
